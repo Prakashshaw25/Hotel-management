@@ -63,15 +63,15 @@ All foreign keys are enforced. Room status updates automatically on check-in and
 ---
 
 ## 💳 Billing Logic
-A guest cannot check out until the bill is marked **Paid**.
 
+| Component | Calculation |
+|---|---|
+| Room Charges | price_per_night × number of nights |
+| Restaurant | Sum of all Served/Billed orders for the booking |
+| GST (12%) | (Room Charges + Restaurant) × 0.12 |
+| **Total** | **Room Charges + Restaurant + GST** |
 
-Room Charges     =  price_per_night  ×  number of nights
-Restaurant       =  sum of all Served/Billed orders for the booking
-GST (12%)        =  (Room Charges + Restaurant) × 0.12
-─────────────────────────────────────────────────────────
-Total            =  Room Charges + Restaurant + GST
-
+> A guest cannot check out until the bill is marked **Paid**.
 ---
 
 ## 📁 .gitignore tip
